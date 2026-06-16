@@ -15,19 +15,6 @@ Microservicio de gestión de **proveedores** para EcoMarket SPA. Expone una API 
 | Base path | `/api/v1/proveedores` |
 | Grupo / artefacto | `ecomarket` / `proveedor-ms` |
 
-## Cómo ejecutar
-
-```bash
-# Con el wrapper de Maven
-./mvnw spring-boot:run
-
-# o compilar y ejecutar el jar
-./mvnw clean package
-java -jar target/proveedor-ms-0.0.1-SNAPSHOT.jar
-```
-
-Antes de levantar, asegúrate de tener una base MySQL llamada `proveedoresdb` accesible en `localhost:3306` (usuario `root`, sin contraseña por defecto). La configuración está en `src/main/resources/application.properties` y `spring.jpa.hibernate.ddl-auto=update` crea/actualiza la tabla `proveedores` automáticamente.
-
 ## Modelo — `Proveedor`
 
 Entidad JPA mapeada a la tabla `proveedores`.
@@ -106,16 +93,4 @@ DELETE /api/v1/proveedores/1
 ```
 Respuesta: sin contenido.
 
-## Estructura del proyecto
 
-```
-proveedor-ms/
-├── src/main/java/ecomarket/proveedor_ms/
-│   ├── ProveedorMsApplication.java        # Punto de entrada
-│   ├── controller/ProveedorController.java # Endpoints REST
-│   ├── service/ProveedorService.java       # Lógica de negocio
-│   ├── repository/ProveedorRepository.java # Acceso a datos (JPA)
-│   └── model/Proveedor.java                # Entidad
-├── src/main/resources/application.properties
-└── pom.xml
-```
