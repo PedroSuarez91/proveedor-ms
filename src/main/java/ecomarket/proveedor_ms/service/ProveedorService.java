@@ -23,6 +23,11 @@ public class ProveedorService {
         return proveedorRepository.findAll();
     }
 
+    public Proveedor findById(Long id) {
+        return proveedorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Proveedor no encontrado: " + id));
+    }
+
     public Proveedor modificar(Long id, Proveedor proveedor) {
         Proveedor proveedorExistente = proveedorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Proveedor no encontrado: " + id));
